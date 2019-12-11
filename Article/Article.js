@@ -85,12 +85,29 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Professional Software Development in 2019',
+    date: 'Jan 1st, 2019',
+    firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+          hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+          Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
+  
 ];
 
 const articles = document.querySelector('.articles');
 
-articlesData.forEach((content) => {
+data.forEach((content) => {
   articles.appendChild(createArticle(content.title, content.date, content.firstParagraph, content.secondParagraph, content.thirdParagraph))
 });
 
@@ -102,6 +119,8 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
   const paragraphTwo = document.createElement('p');
   const paragraphThree = document.createElement('p');
   const expandButton = document.createElement('span');
+
+  console.log(article);
 
   article.appendChild(articleTitle);
   article.appendChild(articleDate);
@@ -123,10 +142,11 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
   paragraphOne.textContent = firstParagraph;
   paragraphTwo.textContent = secondParagraph;
   paragraphThree.textContent = thirdParagraph;
+  expandButton.textContent = `open`;
 
-  articleButton.addEventListener("click", (event) => {
+  expandButton.addEventListener("click", (event) => {
     article.classList.toggle('article-open')
-  })
+  });
 
   return article;
 }
